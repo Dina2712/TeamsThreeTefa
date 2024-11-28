@@ -1,0 +1,169 @@
+section{
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+h1, h2, h3, h3, h5 {
+    font-family: 'Lato', sans-serif
+}
+
+p {
+    font-family: 'Nunito';
+}
+
+/* Hero */
+.hero-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 0;
+}
+
+.hero-box .box p {
+    width: 500px;
+}
+
+.hero-box .box img {
+    width: 400px;
+}
+
+@media (max-width: 992px) {
+    .hero-box {
+        flex-direction: column; /* Atur menjadi kolom */
+        text-align: center; /* Pusatkan konten */
+    }
+
+    .hero-box .box p {
+        font-size: 14px;
+        width: 100%; /* Sesuaikan lebar teks */
+    }
+
+    .hero-box .box img {
+        width: 300px; /* Ubah ukuran gambar */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 50px;
+    }
+
+    .hero-box {
+        flex-direction: column; /* Pastikan gambar ada di bawah teks */
+        text-align: center;
+    }
+
+    .hero-box .box p {
+        width: 100%; /* Pastikan teks memenuhi area */
+    }
+
+    .hero-box .box img {
+        width: 100%; /* Gambar akan responsif */
+        max-width: 300px; /* Batas maksimal lebar gambar */
+        margin: 0 auto; /* Pusatkan gambar */
+    }
+}
+/*Navbar*/
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Memastikan navbar meluas sepanjang layar */
+    z-index: 1000; /* Agar berada di atas elemen lain */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Opsional: Tambahkan efek bayangan */
+}
+
+.navbar-nav .nav-link {
+    transition: transform 0.3s ease, color 0.3s ease; /* Tambahkan animasi halus */
+}
+
+.navbar-nav .nav-link:hover {
+    transform: scale(1.10); /* Membesarkan teks menjadi 120% */
+}
+
+/*Button*/
+.btn-primary:hover {
+    background-color: #0056b3; /* Warna lebih gelap */
+    transform: scale(1.05);   /* Membuat tombol sedikit membesar */
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* About */
+.about-box p {
+    padding: 10px 15px 10px 20px; /* Atas, kanan, bawah, kiri */
+}
+
+@media (max-width: 475px) {
+    .about {
+        width: 90%; 
+    }
+}
+/* About */
+
+/* Service */
+.services-box .service i{
+    font-size: 30px;
+}
+/* Service */
+
+/* FAQ */
+.faq-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Pusatkan konten secara horizontal */
+    text-align: center; /* Untuk teks agar terpusat juga */
+}
+
+.faq-box img {
+    width: 400px;
+    margin-bottom: 20px; /* Beri jarak antara gambar dan elemen di bawahnya */
+}
+
+@media (max-width: 475px) {
+    .faq-box img {
+        width: 300px;
+    }
+}
+/* FAQ */
+
+/* Up down button */
+.scroll-to-top {
+    position: fixed; /* Agar melayang */
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+    background-color: #0d6efd; /* Warna tombol */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Bentuk bulat */
+    width: 40px;
+    height: 40px;
+    display: none; /* Tersembunyi secara default */
+    justify-content: center; /* Tengah secara horizontal */
+    align-items: center; /* Tengah secara vertikal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bayangan */
+    cursor: pointer;
+    z-index: 1000; /* Prioritas di atas elemen lain */
+}
+
+.scroll-to-top:hover {
+    background-color: #084298; /* Warna tombol saat hover */
+}
+
+
+/* FOOTER */
+.footer {
+    margin-top: 100px;
+    padding-bottom: 20px;
+}
+.footer-box .row .col:nth-child(2) a{
+    opacity: 75%;
+}
+.footer-box .row .col:nth-child(2) a:hover{
+    opacity: 100%;
+}
+
+.copyright{
+    margin-top: 100px;
+}
+/* FOOTER */
