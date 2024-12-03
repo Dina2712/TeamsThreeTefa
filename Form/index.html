@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <a href="../index.html" class="bubble-button" title="Kembali ke Halaman Utama">🏠</a>
     <div class="form-container">
     <div class="container text-center">
     <img src="./logonew.jpeg" alt="Logo" width="65" height="65" class="d-inline-block align-text-top rounded-circle img-fluid mb-3">
@@ -109,14 +110,19 @@
     <option value="ewallet">E-Wallet</option>
 </select>
 
-<!-- Nomor Antrian -->
-<div id="queueDisplay" class="mt-4 d-none">
-    <h3>Nomor Antrian Anda: <span id="queueNumber" class="text-success"></span></h3>
+<!-- Kupon Antrian -->
+<div class="kupon" id="kupon">
+    <h2>Kupon Antrian</h2>
+    <p><strong>Nomor Antrian:</strong> <span id="nomor-antrian"></span></p>
+    <p><strong>Nama:</strong> <span id="kupon-nama"></span></p>
+    <p><strong>Jenis Kendaraan:</strong> <span id="kupon-jenis-kendaraan"></span></p>
+    <p><strong>Tanggal Kedatangan:</strong> <span id="kupon-tanggal"></span></p>
+    <p><strong>Jam Kedatangan:</strong> <span id="kupon-jam"></span></p>
+    <p><strong>Metode Pembayaran:</strong> <span id="kupon-pembayaran"></span></p>
 </div>
 
-<!-- Tombol Kirim -->
-<button type="submit" class="btn btn-primary w-100 mb-3">Kirim Formulir</button>
-</form>
+<!-- Submit Button -->
+<button type="button" onclick="submitForm()">Kirim Formulir</button>
 </div>
 
 <script src="script.js"></script>

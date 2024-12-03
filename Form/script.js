@@ -1,58 +1,46 @@
-// Menginisialisasi nomor antrean dari Local Storage
-let queueCounter = parseInt(localStorage.getItem('queueNumber')) || 1;
+// Variabel global untuk menyimpan nomor antrian
+let nomorAntrian = 1;
 
-// Fungsi untuk menampilkan opsi layanan berdasarkan jenis kendaraan
-function showServiceOptions() {
-    const vehicleType = document.getElementById('vehicleType').value;
-    document.getElementById('motorServices').classList.add('d-none');
-    document.getElementById('mobilServices').classList.add('d-none');
-
-    if (vehicleType === 'motor') {
-        document.getElementById('motorServices').classList.remove('d-none');
-    } else if (vehicleType === 'mobil') {
-        document.getElementById('mobilServices').classList.remove('d-none');
-    }
-}
-
+// Fungsi untuk menampilkan atau menyembunyikan input tambahan
 function toggleServiceLainnya(value) {
     const serviceLainnyaDiv = document.getElementById('service-lainnya');
     if (value === "lainnya") {
         serviceLainnyaDiv.style.display = "block";
     } else {
         serviceLainnyaDiv.style.display = "none";
-        document.getElementById('deskripsi-service-lainnya').value = ""; // Clear input if not needed
+        document.getElementById('deskripsi-service-lainnya').value = ""; // Kosongkan input
     }
 }
 
-// Event listener untuk pengiriman formulir
-document.getElementById('serviceForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Mencegah halaman direfresh setelah submit
+// Fungsi untuk menangani pengiriman formulir
+function submitForm() {
+    // Ambil nilai dari form
+    const nama = document.getElementById("nama").value;
+    const jenisKendaraan = document.getElementById("jenis").value;
+    const tanggal = document.getElementById("tanggal").value;
+    const jam = document.getElementById("jam").value;
+    const metodePembayaran = document.getElementById("metode-pembayaran").value;
 
-    // Ambil data dari form
-    const customerName = document.getElementById('customerName').value;
-    const customerPhone = document.getElementById('customerPhone').value;
-    const vehicleType = document.getElementById('vehicleType').value;
-    const selectedService = vehicleType === 'motor' 
-        ? document.getElementById('motorService').value 
-        : document.getElementById('mobilService').value;
-    const serviceDate = document.getElementById('serviceDate').value;
-    const paymentMethod = document.getElementById('paymentMethod').value;
-
-    // Memastikan semua pilihan sudah diisi
-    if (!customerName || !customerPhone || !vehicleType || !selectedService || !serviceDate || !paymentMethod) {
-        alert('Harap lengkapi semua pilihan!');
+    // Validasi data
+    if (!nama || !jenisKendaraan || !tanggal || !jam || !metodePembayaran) {
+        alert("Harap lengkapi semua field!");
         return;
     }
 
-    // Menampilkan nomor antrian
-    const queueNumber = `ANTRI-${queueCounter}`;
-    document.getElementById('queueNumber').textContent = queueNumber;
-    document.getElementById('queueDisplay').classList.remove('d-none');
+    // Tampilkan kupon
+    document.getElementById("nomor-antrian").innerText = nomorAntrian;
+    document.getElementById("kupon-nama").innerText = nama;
+    document.getElementById("kupon-jenis-kendaraan").innerText = jenisKendaraan;
+    document.getElementById("kupon-tanggal").innerText = tanggal;
+    document.getElementById("kupon-jam").innerText = jam;
+    document.getElementById("kupon-pembayaran").innerText = metodePembayaran;
 
-    // Simpan nomor antrian baru ke Local Storage dan tingkatkan antrean
-    localStorage.setItem('queueNumber', queueCounter + 1);
-    queueCounter++;
+    document.getElementById("kupon").style.display = "block";
 
-    // Menampilkan notifikasi sukses
-    alert(`Formulir berhasil dikirim!\nNama: ${customerName}\nNomor HP: ${customerPhone}\nJenis Kendaraan: ${vehicleType}\nLayanan: ${selectedService}\nTanggal Service: ${serviceDate}\nMetode Pembayaran: ${paymentMethod}\nNomor antrian Anda adalah ${queueNumber}`);
-});
+    // Tingkatkan nomor antrian
+    nomorAntrian++;
+
+    // Reset form
+    document.getElementById("serviceForm").reset();
+    document.getElementById('service-lainnya').style.display = 'none';
+}
