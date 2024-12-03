@@ -14,6 +14,16 @@ function showServiceOptions() {
     }
 }
 
+function toggleServiceLainnya(value) {
+    const serviceLainnyaDiv = document.getElementById('service-lainnya');
+    if (value === "lainnya") {
+        serviceLainnyaDiv.style.display = "block";
+    } else {
+        serviceLainnyaDiv.style.display = "none";
+        document.getElementById('deskripsi-service-lainnya').value = ""; // Clear input if not needed
+    }
+}
+
 // Event listener untuk pengiriman formulir
 document.getElementById('serviceForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Mencegah halaman direfresh setelah submit
